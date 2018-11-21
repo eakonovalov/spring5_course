@@ -1,4 +1,4 @@
-package com.eakonovalov.spring5webapp.repository;
+package com.eakonovalov.spring5webapp.repositories;
 
 import com.eakonovalov.spring5webapp.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
