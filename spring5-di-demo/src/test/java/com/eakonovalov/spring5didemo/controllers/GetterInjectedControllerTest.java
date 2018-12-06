@@ -1,6 +1,6 @@
 package com.eakonovalov.spring5didemo.controllers;
 
-import com.eakonovalov.spring5didemo.services.GreetingServiceImpl;
+import com.eakonovalov.services.GreetingServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 

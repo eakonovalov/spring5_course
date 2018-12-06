@@ -7,7 +7,9 @@ import com.eakonovalov.spring5didemo.controllers.PropertyInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"com.eakonovalov.services", "com.eakonovalov.spring5didemo.controllers"})
 @SpringBootApplication
 public class Spring5DiDemoApplication {
 
@@ -20,6 +22,6 @@ public class Spring5DiDemoApplication {
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
         System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());
         System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
-
     }
+
 }

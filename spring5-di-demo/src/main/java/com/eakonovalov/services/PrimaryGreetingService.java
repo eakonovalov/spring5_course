@@ -1,4 +1,4 @@
-package com.eakonovalov.spring5didemo.services;
+package com.eakonovalov.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;

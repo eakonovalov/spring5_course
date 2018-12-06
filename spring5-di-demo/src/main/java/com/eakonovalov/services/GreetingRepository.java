@@ -1,4 +1,4 @@
-package com.eakonovalov.spring5didemo.services;
+package com.eakonovalov.services;
 
 public interface GreetingRepository {
 

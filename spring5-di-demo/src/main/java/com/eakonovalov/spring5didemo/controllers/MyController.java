@@ -1,6 +1,6 @@
 package com.eakonovalov.spring5didemo.controllers;
 
-import com.eakonovalov.spring5didemo.services.GreetingService;
+import com.eakonovalov.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
