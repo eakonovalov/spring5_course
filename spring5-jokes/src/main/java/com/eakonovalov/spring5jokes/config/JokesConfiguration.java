@@ -11,5 +11,4 @@ public class JokesConfiguration {
     ChuckNorrisQuotes chuckNorrisQuotes() {
         return new ChuckNorrisQuotes();
     }
-
 }
