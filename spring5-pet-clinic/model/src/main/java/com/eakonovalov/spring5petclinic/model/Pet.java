@@ -40,5 +40,4 @@ public class Pet extends NamedEntity {
     public List<Visit> getVisits() {
         return visits;
     }
-
 }

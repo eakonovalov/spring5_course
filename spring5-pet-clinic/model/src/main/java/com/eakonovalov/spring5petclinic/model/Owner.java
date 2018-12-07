@@ -42,5 +42,4 @@ public class Owner extends Person {
     public List<Pet> getPets() {
         return pets;
     }
-
 }

@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>com.eakonovalov.spring5petclinic</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>data</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

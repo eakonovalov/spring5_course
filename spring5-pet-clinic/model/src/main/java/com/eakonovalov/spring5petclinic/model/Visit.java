@@ -33,5 +33,4 @@ public class Visit extends BaseEntity {
     public void setPetId(Integer petId) {
         this.petId = petId;
     }
-
 }

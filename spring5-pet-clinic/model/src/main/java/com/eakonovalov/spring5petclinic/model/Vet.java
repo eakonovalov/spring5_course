@@ -10,5 +10,4 @@ public class Vet extends Person {
     public List<Specialty> getSpecialties() {
         return specialties;
     }
-
 }
