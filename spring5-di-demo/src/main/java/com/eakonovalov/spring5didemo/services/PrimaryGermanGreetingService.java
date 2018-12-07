@@ -1,5 +1,6 @@
-package com.eakonovalov.services;
+package com.eakonovalov.spring5didemo.services;
 
+/*
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Primary
 @Profile("de")
+*/
 public class PrimaryGermanGreetingService implements GreetingService {
 
     private GreetingRepository greetingRepository;
@@ -19,4 +21,5 @@ public class PrimaryGermanGreetingService implements GreetingService {
     public String sayGreeting() {
         return greetingRepository.getGermanGreeting();
     }
+
 }

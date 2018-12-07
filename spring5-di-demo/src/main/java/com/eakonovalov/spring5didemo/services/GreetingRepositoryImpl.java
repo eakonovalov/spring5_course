@@ -1,4 +1,4 @@
-package com.eakonovalov.services;
+package com.eakonovalov.spring5didemo.services;
 
 import org.springframework.stereotype.Component;
 
@@ -17,8 +17,7 @@ public class GreetingRepositoryImpl implements GreetingRepository {
 
     @Override
     public String getGermanGreeting() {
-
         return "Primärer Grußdienst";
-
     }
+
 }

@@ -7,9 +7,8 @@ import com.eakonovalov.spring5didemo.controllers.PropertyInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"com.eakonovalov.services", "com.eakonovalov.spring5didemo.controllers"})
+//@ComponentScan(basePackages = {"com.eakonovalov.spring5didemo.config", "com.eakonovalov.spring5didemo.services", "com.eakonovalov.spring5didemo.controllers"})
 @SpringBootApplication
 public class Spring5DiDemoApplication {
 

@@ -1,4 +1,4 @@
-package com.eakonovalov.services;
+package com.eakonovalov.spring5didemo.services;
 
 import org.springframework.stereotype.Service;
 
@@ -11,4 +11,5 @@ public class GreetingServiceImpl implements GreetingService {
     public String sayGreeting() {
         return HELLO_GURUS;
     }
+
 }

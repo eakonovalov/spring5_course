@@ -1,4 +1,4 @@
-package com.eakonovalov.services;
+package com.eakonovalov.spring5didemo.services;
 
 import org.springframework.stereotype.Service;
 
@@ -9,4 +9,5 @@ public class GetterGreetingService implements GreetingService {
     public String sayGreeting() {
         return "Hello - I was injected by the getter";
     }
+
 }

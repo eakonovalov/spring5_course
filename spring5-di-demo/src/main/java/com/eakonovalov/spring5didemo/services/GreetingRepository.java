@@ -1,4 +1,4 @@
-package com.eakonovalov.services;
+package com.eakonovalov.spring5didemo.services;
 
 public interface GreetingRepository {
 
@@ -7,4 +7,5 @@ public interface GreetingRepository {
     String getSpanishGreeting();
 
     String getGermanGreeting();
+
 }
