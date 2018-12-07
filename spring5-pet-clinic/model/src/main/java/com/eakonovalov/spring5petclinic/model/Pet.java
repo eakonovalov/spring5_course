@@ -1,6 +1,6 @@
 package com.eakonovalov.spring5petclinic.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,11 @@ import java.util.List;
 public class Pet extends NamedEntity {
 
     private LocalDate birthDate;
+    @OneToOne
     private PetType type;
+    @ManyToOne
     private Owner owner;
+    @OneToMany
     private List<Visit> visits = new ArrayList<>();
 
     public LocalDate getBirthDate() {

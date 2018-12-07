@@ -1,7 +1,8 @@
-package com.eakonovalov.spring5petclinic.web;
+package com.eakonovalov.spring5petclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class WebApplication {

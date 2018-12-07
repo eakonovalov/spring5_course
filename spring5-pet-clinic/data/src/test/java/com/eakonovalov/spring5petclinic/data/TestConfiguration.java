@@ -1,4 +1,4 @@
-package com.eakonovalov.spring5petclinic.data.services;
+package com.eakonovalov.spring5petclinic.data;
 
 import com.eakonovalov.spring5petclinic.data.repositories.MapRepository;
 import com.eakonovalov.spring5petclinic.data.repositories.OwnerRepository;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Configuration
-@ComponentScan("com.eakonovalov.spring5petclinic.data")
+@ComponentScan({"com.eakonovalov.spring5petclinic.data"})
 public class TestConfiguration {
 
     @Bean

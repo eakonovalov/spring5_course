@@ -1,11 +1,14 @@
 package com.eakonovalov.spring5petclinic.data.services;
 
+import com.eakonovalov.spring5petclinic.data.TestConfiguration;
+import com.eakonovalov.spring5petclinic.data.TestData;
 import com.eakonovalov.spring5petclinic.data.repositories.OwnerRepository;
 import com.eakonovalov.spring5petclinic.model.Owner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -20,34 +23,15 @@ public class OwnerServiceTest {
 
     @Autowired
     private OwnerService ownerService;
-
     @Autowired
     private OwnerRepository ownerRepository;
+    @Autowired
+    private TestData testData;
 
     @Before
     public void setUp() {
         ownerRepository.deleteAll();
-
-        Owner o = new Owner();
-        o.setId(1L);
-        o.setFirstName("Ivan");
-        o.setLastName("Ivanov");
-        ownerRepository.save(o);
-
-        o = new Owner();
-        o.setId(2L);
-        o.setFirstName("Petr");
-        o.setLastName("Petrov");
-        ownerRepository.save(o);
-    }
-
-    @Test
-    public void testFindById() {
-        Optional<Owner> optional = ownerRepository.findById(1L);
-
-        assertNotNull(optional.orElse(null));
-        assertEquals("Ivan", optional.get().getFirstName());
-        assertEquals("Ivanov", optional.get().getLastName());
+        testData.create();
     }
 
     @Test

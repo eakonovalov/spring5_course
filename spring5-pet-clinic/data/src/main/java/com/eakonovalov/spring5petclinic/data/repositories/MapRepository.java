@@ -1,10 +1,7 @@
 package com.eakonovalov.spring5petclinic.data.repositories;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.Id;
@@ -30,7 +27,7 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
 
     @Override
     public Page<T> findAll(Pageable pageable) {
-        return null;
+        return new PageImpl<>(findAll());
     }
 
     @Override
