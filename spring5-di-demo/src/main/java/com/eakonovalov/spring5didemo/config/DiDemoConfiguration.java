@@ -36,5 +36,4 @@ public class DiDemoConfiguration {
     GreetingService primaryGermanGreetingService(GreetingServiceFactory greetingServiceFactory){
         return greetingServiceFactory.createGreetingService("de");
     }
-
 }

@@ -9,5 +9,4 @@ public class GetterGreetingService implements GreetingService {
     public String sayGreeting() {
         return "Hello - I was injected by the getter";
     }
-
 }

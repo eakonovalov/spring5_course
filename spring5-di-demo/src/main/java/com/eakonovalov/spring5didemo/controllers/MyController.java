@@ -17,5 +17,4 @@ public class MyController {
 
         return greetingService.sayGreeting();
     }
-
 }

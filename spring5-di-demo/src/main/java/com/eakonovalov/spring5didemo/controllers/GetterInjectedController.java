@@ -18,5 +18,4 @@ public class GetterInjectedController {
     public void setGreetingService(@Qualifier("getterGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
-
 }

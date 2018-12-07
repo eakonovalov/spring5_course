@@ -60,5 +60,4 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     public void afterInit(){
         System.out.println("## - After init called by Bean Post Processor");
     }
-
 }

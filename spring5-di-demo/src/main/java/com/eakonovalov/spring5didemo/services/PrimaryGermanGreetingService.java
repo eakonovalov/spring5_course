@@ -21,5 +21,4 @@ public class PrimaryGermanGreetingService implements GreetingService {
     public String sayGreeting() {
         return greetingRepository.getGermanGreeting();
     }
-
 }

@@ -16,5 +16,4 @@ public class PropertyInjectedController {
     public String sayHello(){
         return greetingServiceImpl.sayGreeting();
     }
-
 }

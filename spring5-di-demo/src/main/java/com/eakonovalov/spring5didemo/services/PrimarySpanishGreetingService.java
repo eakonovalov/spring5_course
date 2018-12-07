@@ -21,5 +21,4 @@ public class PrimarySpanishGreetingService implements GreetingService {
     public String sayGreeting() {
         return greetingRepository.getSpanishGreeting();
     }
-
 }

@@ -9,5 +9,4 @@ public class ConstructorGreetingService implements GreetingService {
     public String sayGreeting() {
         return "Hello - I was injected via the constructor!!!";
     }
-
 }
