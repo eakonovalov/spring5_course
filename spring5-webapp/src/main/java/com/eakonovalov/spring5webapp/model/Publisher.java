@@ -67,5 +67,4 @@ public class Publisher {
                 ", name='" + name + '\'' +
                 '}';
     }
-
 }
