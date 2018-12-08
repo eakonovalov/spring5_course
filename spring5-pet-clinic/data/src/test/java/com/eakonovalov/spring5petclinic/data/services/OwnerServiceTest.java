@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -44,10 +43,10 @@ public class OwnerServiceTest {
 
     @Test
     public void testRename() {
-        Optional<Owner> optional = ownerRepository.findById(1L);
-        ownerService.rename(optional.get().getId(), "Evgeny");
+        List<Owner> owners = ownerRepository.findByLastName("Petrov");
+        ownerService.rename(owners.get(0).getId(), "Evgeny");
 
-        optional = ownerRepository.findById(1L);
-        assertEquals("Evgeny", optional.get().getFirstName());
+        owners = ownerRepository.findByLastName("Petrov");
+        assertEquals("Evgeny", owners.get(0).getFirstName());
     }
 }
