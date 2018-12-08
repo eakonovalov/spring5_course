@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -50,21 +51,22 @@ public class MapRepositoryTest {
 
     @Test
     public void deleteById() {
-        ownerRepository.deleteById(1L);
+        List<Owner> owners = ownerRepository.findByLastName("Ivanov");
+        ownerRepository.deleteById(owners.get(0).getId());
         assertEquals(4, ownerRepository.findAll().size());
     }
 
     @Test
     public void delete() {
-        Optional<Owner> optional = ownerRepository.findById(1L);
-        assertNotNull(optional.orElse(null));
-        ownerRepository.delete(optional.get());
+        List<Owner> owners = ownerRepository.findByLastName("Ivanov");
+        ownerRepository.delete(owners.get(0));
         assertEquals(4, ownerRepository.findAll().size());
     }
 
     @Test
     public void findById() {
-        Optional<Owner> optional = ownerRepository.findById(1L);
+        List<Owner> owners = ownerRepository.findByLastName("Ivanov");
+        Optional<Owner> optional = ownerRepository.findById(owners.get(0).getId());
         assertNotNull(optional.orElse(null));
         assertEquals("Ivan", optional.get().getFirstName());
         assertEquals("Ivanov", optional.get().getLastName());

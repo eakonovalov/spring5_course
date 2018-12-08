@@ -15,31 +15,26 @@ public class TestData {
 
     public void create() {
         Owner o = new Owner();
-        o.setId(1L);
         o.setFirstName("Ivan");
         o.setLastName("Ivanov");
         ownerRepository.save(o);
 
         o = new Owner();
-        o.setId(2L);
         o.setFirstName("Petr");
         o.setLastName("Petrov");
         ownerRepository.save(o);
 
         o = new Owner();
-        o.setId(3L);
         o.setFirstName("Alexander");
         o.setLastName("Alexandrov");
         ownerRepository.save(o);
 
         o = new Owner();
-        o.setId(4L);
         o.setFirstName("Alexey");
         o.setLastName("Alexeev");
         ownerRepository.save(o);
 
         o = new Owner();
-        o.setId(5L);
         o.setFirstName("Leonid");
         o.setLastName("Leonidov");
         ownerRepository.save(o);

@@ -10,10 +10,12 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class MapRepository<T, ID> implements JpaRepository<T, ID> {
 
-    private Map<ID, T> store = new HashMap<>();
+    private final AtomicLong sequence = new AtomicLong();
+    private final Map<ID, T> store = new HashMap<>();
 
     @Override
     public List<T> findAll() {
@@ -69,16 +71,24 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
     }
 
     @Override
-
+    @SuppressWarnings("unchecked")
     public <S extends T> S save(S s) {
         Field[] fields = FieldUtils.getFieldsWithAnnotation(s.getClass(), Id.class);
+        if(fields.length != 1) {
+            throw new RuntimeException("Only 1 field should be annotated with @Id, but found " + fields.length);
+        }
 
         ID id;
         try {
             PropertyDescriptor pd = new PropertyDescriptor(fields[0].getName(), s.getClass());
-            @SuppressWarnings("unchecked")
-            ID temp = (ID) pd.getReadMethod().invoke(s);
-            id = temp;
+            Object temp = pd.getReadMethod().invoke(s);
+            if(temp != null) {
+                id = (ID) temp;
+            }
+            else {
+                id = (ID) ((Object) sequence.getAndIncrement());
+                pd.getWriteMethod().invoke(s, id);
+            }
         } catch (IntrospectionException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
@@ -166,9 +176,5 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
 
     public Map<ID, T> getStore() {
         return store;
-    }
-
-    public void setStore(Map<ID, T> store) {
-        this.store = store;
     }
 }
