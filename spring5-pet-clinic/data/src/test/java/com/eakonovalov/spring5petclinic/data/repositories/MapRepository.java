@@ -74,7 +74,7 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
     @SuppressWarnings("unchecked")
     public <S extends T> S save(S s) {
         Field[] fields = FieldUtils.getFieldsWithAnnotation(s.getClass(), Id.class);
-        if(fields.length != 1) {
+        if (fields.length != 1) {
             throw new RuntimeException("Only 1 field should be annotated with @Id, but found " + fields.length);
         }
 
@@ -82,10 +82,9 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
         try {
             PropertyDescriptor pd = new PropertyDescriptor(fields[0].getName(), s.getClass());
             Object temp = pd.getReadMethod().invoke(s);
-            if(temp != null) {
+            if (temp != null) {
                 id = (ID) temp;
-            }
-            else {
+            } else {
                 id = (ID) ((Object) sequence.getAndIncrement());
                 pd.getWriteMethod().invoke(s, id);
             }

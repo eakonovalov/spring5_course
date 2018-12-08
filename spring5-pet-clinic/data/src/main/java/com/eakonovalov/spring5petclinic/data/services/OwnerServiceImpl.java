@@ -18,7 +18,7 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public void rename(Long id, String firstName) {
         Optional<Owner> optional = ownerRepository.findById(id);
-        if(!optional.isPresent()) {
+        if (!optional.isPresent()) {
             throw new RuntimeException("Owner not found");
         }
 
