@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 */
 public class PrimaryGreetingService implements GreetingService {
 
-    private GreetingRepository greetingRepository;
+    private final GreetingRepository greetingRepository;
 
     public PrimaryGreetingService(GreetingRepository greetingRepository) {
         this.greetingRepository = greetingRepository;

@@ -13,5 +13,4 @@ public class HelloSpringFrameworkGuruGreetingService implements GreetingService 
     public void sayHello() {
         System.out.println("Hello Guru!!!");
     }
-
 }

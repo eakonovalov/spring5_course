@@ -12,5 +12,4 @@ public class Spring5ideaApplication {
         GreetingController controller = ctx.getBean(GreetingController.class);
         controller.sayHello();
     }
-
 }

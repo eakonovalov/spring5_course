@@ -2,7 +2,7 @@ package com.eakonovalov.spring5didemo.services;
 
 public class GreetingServiceFactory {
 
-    private GreetingRepository greetingRepository;
+    private final GreetingRepository greetingRepository;
 
     public GreetingServiceFactory(GreetingRepository greetingRepository) {
         this.greetingRepository = greetingRepository;

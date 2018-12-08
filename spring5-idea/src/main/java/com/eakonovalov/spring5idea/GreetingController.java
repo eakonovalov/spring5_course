@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class GreetingController {
 
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
 
     public GreetingController(@Qualifier("helloGuru") GreetingService greetingService) {
         this.greetingService = greetingService;
@@ -15,5 +15,4 @@ public class GreetingController {
     public void sayHello() {
         greetingService.sayHello();
     }
-
 }
