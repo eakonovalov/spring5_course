@@ -19,21 +19,21 @@ public class DiDemoConfiguration {
     @Bean
     @Primary
     @Profile({"default", "en"})
-    GreetingService primaryGreetingService(GreetingServiceFactory greetingServiceFactory){
+    GreetingService primaryGreetingService(GreetingServiceFactory greetingServiceFactory) {
         return greetingServiceFactory.createGreetingService("en");
     }
 
     @Bean
     @Primary
     @Profile("es")
-    GreetingService primarySpanishGreetingService(GreetingServiceFactory greetingServiceFactory){
+    GreetingService primarySpanishGreetingService(GreetingServiceFactory greetingServiceFactory) {
         return greetingServiceFactory.createGreetingService("es");
     }
 
     @Bean
     @Primary
     @Profile("de")
-    GreetingService primaryGermanGreetingService(GreetingServiceFactory greetingServiceFactory){
+    GreetingService primaryGermanGreetingService(GreetingServiceFactory greetingServiceFactory) {
         return greetingServiceFactory.createGreetingService("de");
     }
 }
