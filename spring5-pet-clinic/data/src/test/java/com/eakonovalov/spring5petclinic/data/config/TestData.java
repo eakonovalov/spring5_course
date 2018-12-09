@@ -1,4 +1,4 @@
-package com.eakonovalov.spring5petclinic.data;
+package com.eakonovalov.spring5petclinic.data.config;
 
 import com.eakonovalov.spring5petclinic.data.repositories.OwnerRepository;
 import com.eakonovalov.spring5petclinic.model.Owner;

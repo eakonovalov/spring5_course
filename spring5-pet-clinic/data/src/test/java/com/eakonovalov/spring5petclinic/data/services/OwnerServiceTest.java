@@ -1,7 +1,7 @@
 package com.eakonovalov.spring5petclinic.data.services;
 
-import com.eakonovalov.spring5petclinic.data.TestConfiguration;
-import com.eakonovalov.spring5petclinic.data.TestData;
+import com.eakonovalov.spring5petclinic.data.config.TestConfiguration;
+import com.eakonovalov.spring5petclinic.data.config.TestData;
 import com.eakonovalov.spring5petclinic.data.repositories.OwnerRepository;
 import com.eakonovalov.spring5petclinic.model.Owner;
 import org.junit.Before;
