@@ -1,0 +1,10 @@
+spring5didemo:
+    database:
+        username: username_YML
+        password: password_YML
+---
+spring:
+    profiles: de
+spring5didemo:
+    database:
+        username: username_DE_YML
