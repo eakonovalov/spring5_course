@@ -1,14 +1,13 @@
 package com.eakonovalov.spring5petclinic.data.repositories;
 
 import com.eakonovalov.spring5petclinic.data.config.TestConfiguration;
-import com.eakonovalov.spring5petclinic.data.config.TestData;
 import com.eakonovalov.spring5petclinic.model.Owner;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,15 +23,6 @@ public class MapRepositoryTest {
 
     @Autowired
     private OwnerRepository ownerRepository;
-
-    @Autowired
-    private TestData testData;
-
-    @Before
-    public void setUp() {
-        ownerRepository.deleteAll();
-        testData.create();
-    }
 
     @Test
     public void findAll() {
@@ -51,6 +41,7 @@ public class MapRepositoryTest {
     }
 
     @Test
+    @DirtiesContext
     public void deleteById() {
         List<Owner> owners = ownerRepository.findByLastName("Ivanov");
         ownerRepository.deleteById(owners.get(0).getId());
@@ -58,6 +49,7 @@ public class MapRepositoryTest {
     }
 
     @Test
+    @DirtiesContext
     public void delete() {
         List<Owner> owners = ownerRepository.findByLastName("Ivanov");
         ownerRepository.delete(owners.get(0));
