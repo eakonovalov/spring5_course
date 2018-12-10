@@ -1,7 +1,9 @@
 package com.eakonovalov.spring5petclinic.data.config;
 
 import com.eakonovalov.spring5petclinic.data.repositories.OwnerRepository;
+import com.eakonovalov.spring5petclinic.data.repositories.VetRepository;
 import com.eakonovalov.spring5petclinic.model.Owner;
+import com.eakonovalov.spring5petclinic.model.Vet;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -10,36 +12,29 @@ import org.springframework.stereotype.Component;
 public class TestData {
 
     private OwnerRepository ownerRepository;
+    private VetRepository vetRepository;
 
-    public TestData(OwnerRepository ownerRepository) {
+    public TestData(OwnerRepository ownerRepository, VetRepository vetRepository) {
         this.ownerRepository = ownerRepository;
+        this.vetRepository = vetRepository;
     }
 
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        Owner o = new Owner();
-        o.setFirstName("Ivan");
-        o.setLastName("Ivanov");
-        ownerRepository.save(o);
+        createOwners();
+        createVets();
+    }
 
-        o = new Owner();
-        o.setFirstName("Petr");
-        o.setLastName("Petrov");
-        ownerRepository.save(o);
+    private void createOwners() {
+        ownerRepository.save(new Owner("Ivan", "Ivanov"));
+        ownerRepository.save(new Owner("Petr", "Petrov"));
+        ownerRepository.save(new Owner("Alexander", "Alexandrov"));
+        ownerRepository.save(new Owner("Alexey", "Alexeev"));
+        ownerRepository.save(new Owner("Leonid", "Leonidov"));
+    }
 
-        o = new Owner();
-        o.setFirstName("Alexander");
-        o.setLastName("Alexandrov");
-        ownerRepository.save(o);
-
-        o = new Owner();
-        o.setFirstName("Alexey");
-        o.setLastName("Alexeev");
-        ownerRepository.save(o);
-
-        o = new Owner();
-        o.setFirstName("Leonid");
-        o.setLastName("Leonidov");
-        ownerRepository.save(o);
+    private void createVets() {
+        vetRepository.save(new Vet("Danil", "Danilov"));
+        vetRepository.save(new Vet("Fedor", "Fedorov"));
     }
 }

@@ -14,6 +14,15 @@ public class Owner extends Person {
     @OneToMany(mappedBy = "owner")
     private List<Pet> pets = new ArrayList<>();
 
+    public Owner() {
+        super();
+    }
+
+    public Owner(String firstName, String lastName) {
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
+
     public String getAddress() {
         return address;
     }
