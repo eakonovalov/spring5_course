@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 <head>
     <meta charset="UTF-8"/>
     <title>Spring Framework Guru</title>
 </head>
 <body>
-<h1>Owner List</h1>
+<h2>Owner List</h2>
 
-<table>
+<table class="table table-striped">
     <tr>
         <th>ID</th>
         <th>First Name</th>
