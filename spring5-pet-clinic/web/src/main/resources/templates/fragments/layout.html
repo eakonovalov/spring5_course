@@ -1,8 +1,6 @@
 <!doctype html>
-<html th:fragment="layout (template, menu)">
-
+<html th:fragment="layout (template, menu)" xmlns:th="http://www.thymeleaf.org">
   <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,9 +16,7 @@
     <![endif]-->
 
     <link rel="stylesheet" th:href="@{/resources/css/petclinic.css}"/>
-
   </head>
-
 <body>
 
   <nav class="navbar navbar-default" role="navigation">
