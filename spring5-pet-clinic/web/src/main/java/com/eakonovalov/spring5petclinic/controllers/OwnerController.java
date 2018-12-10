@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/owners")
 public class OwnerController {
 
     private final OwnerRepository ownerRepository;
@@ -14,10 +15,15 @@ public class OwnerController {
         this.ownerRepository = ownerRepository;
     }
 
-    @RequestMapping("/owners")
+    @RequestMapping({"", "/"})
     public String getAuthors(Model model) {
         model.addAttribute("owners", ownerRepository.findAll());
 
         return "owners";
+    }
+
+    @RequestMapping("/find")
+    public String find() {
+        return "not_implemented";
     }
 }

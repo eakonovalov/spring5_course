@@ -1,15 +1,17 @@
 package com.eakonovalov.spring5petclinic.model;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Vet extends Person {
 
-    @OneToMany
-    private Set<Specialty> specialties = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "VET_SPECIALTY",
+            joinColumns = @JoinColumn(name = "VET_ID"),
+            inverseJoinColumns = @JoinColumn(name = "SPECIALTY_ID"))
+    private List<Specialty> specialties = new ArrayList<>();
 
     public Vet() {
         super();
@@ -20,7 +22,7 @@ public class Vet extends Person {
         setLastName(lastName);
     }
 
-    public Set<Specialty> getSpecialties() {
+    public List<Specialty> getSpecialties() {
         return specialties;
     }
 }

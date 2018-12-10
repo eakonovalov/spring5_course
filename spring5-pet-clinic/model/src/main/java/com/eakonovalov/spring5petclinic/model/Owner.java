@@ -10,7 +10,7 @@ public class Owner extends Person {
 
     private String address;
     private String city;
-    private String telephone;
+    private String phone;
     @OneToMany(mappedBy = "owner")
     private List<Pet> pets = new ArrayList<>();
 
@@ -39,12 +39,12 @@ public class Owner extends Person {
         this.city = city;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public List<Pet> getPets() {
