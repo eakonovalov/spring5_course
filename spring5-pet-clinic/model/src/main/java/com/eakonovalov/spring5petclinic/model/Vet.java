@@ -2,14 +2,14 @@ package com.eakonovalov.spring5petclinic.model;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Vet extends Person {
 
     @OneToMany
-    private List<Specialty> specialties = new ArrayList<>();
+    private Set<Specialty> specialties = new HashSet<>();
 
     public Vet() {
         super();
@@ -20,7 +20,7 @@ public class Vet extends Person {
         setLastName(lastName);
     }
 
-    public List<Specialty> getSpecialties() {
+    public Set<Specialty> getSpecialties() {
         return specialties;
     }
 }
