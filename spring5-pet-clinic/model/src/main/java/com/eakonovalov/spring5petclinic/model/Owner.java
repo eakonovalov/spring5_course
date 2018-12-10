@@ -2,8 +2,8 @@ package com.eakonovalov.spring5petclinic.model;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Owner extends Person {
@@ -12,7 +12,7 @@ public class Owner extends Person {
     private String city;
     private String telephone;
     @OneToMany(mappedBy = "owner")
-    private Set<Pet> pets = new HashSet<>();
+    private List<Pet> pets = new ArrayList<>();
 
     public Owner() {
         super();
@@ -47,7 +47,7 @@ public class Owner extends Person {
         this.telephone = telephone;
     }
 
-    public Set<Pet> getPets() {
+    public List<Pet> getPets() {
         return pets;
     }
 }

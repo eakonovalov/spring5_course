@@ -1,9 +1,7 @@
 package com.eakonovalov.spring5petclinic.data.repositories;
 
 import com.eakonovalov.spring5petclinic.model.Pet;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-@Repository
-public interface PetRepository extends JpaRepository<Pet, Long> {
+public interface PetRepository extends CrudRepository<Pet, Long> {
 }

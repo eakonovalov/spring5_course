@@ -1,8 +1,7 @@
 package com.eakonovalov.spring5petclinic.data.repositories;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
-import org.springframework.data.domain.*;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import javax.persistence.Id;
 import java.beans.IntrospectionException;
@@ -12,7 +11,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class MapRepository<T, ID> implements JpaRepository<T, ID> {
+public class MapRepository<T, ID> implements CrudRepository<T, ID> {
 
     private final AtomicLong sequence = new AtomicLong();
     private final Map<ID, T> store = new HashMap<>();
@@ -20,16 +19,6 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
     @Override
     public List<T> findAll() {
         return new ArrayList<>(store.values());
-    }
-
-    @Override
-    public List<T> findAll(Sort sort) {
-        return findAll();
-    }
-
-    @Override
-    public Page<T> findAll(Pageable pageable) {
-        return new PageImpl<>(findAll());
     }
 
     @Override
@@ -116,61 +105,6 @@ public class MapRepository<T, ID> implements JpaRepository<T, ID> {
     @Override
     public boolean existsById(ID id) {
         return store.get(id) != null;
-    }
-
-    @Override
-    public void flush() {
-
-    }
-
-    @Override
-    public <S extends T> S saveAndFlush(S entity) {
-        return save(entity);
-    }
-
-    @Override
-    public void deleteInBatch(Iterable<T> entities) {
-        entities.forEach(this::delete);
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-        store.clear();
-    }
-
-    @Override
-    public T getOne(ID id) {
-        return store.get(id);
-    }
-
-    @Override
-    public <S extends T> Optional<S> findOne(Example<S> example) {
-        return Optional.empty();
-    }
-
-    @Override
-    public <S extends T> List<S> findAll(Example<S> example) {
-        return null;
-    }
-
-    @Override
-    public <S extends T> List<S> findAll(Example<S> example, Sort sort) {
-        return null;
-    }
-
-    @Override
-    public <S extends T> Page<S> findAll(Example<S> example, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public <S extends T> long count(Example<S> example) {
-        return 0;
-    }
-
-    @Override
-    public <S extends T> boolean exists(Example<S> example) {
-        return false;
     }
 
     public Map<ID, T> getStore() {
