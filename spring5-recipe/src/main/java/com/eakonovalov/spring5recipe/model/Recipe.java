@@ -7,7 +7,6 @@ import java.util.List;
 @Entity
 public class Recipe extends BaseEntity {
 
-	private Category category;
 	private Integer cookTime;
 	private String description;
 
@@ -27,22 +26,14 @@ public class Recipe extends BaseEntity {
 	private String source;
 	private String url;
 
-	@ManyToMany(mappedBy = "recipe")
-	private List<Category> categories = new ArrayList<>();
-
-	@ManyToMany(mappedBy = "recipe")
+	@ManyToMany
 	@JoinTable(name = "recipe_category",
 		joinColumns = @JoinColumn(name = "recipe_id"),
 		inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private List<Category> categories = new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
 	private List<Ingredient> ingredients = new ArrayList<>();
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
 
 	public int getCookTime() {
 		return cookTime;

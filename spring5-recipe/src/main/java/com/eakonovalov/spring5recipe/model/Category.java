@@ -9,7 +9,8 @@ import java.util.List;
 public class Category extends BaseEntity {
 
 	private String name;
-	@ManyToMany
+
+	@ManyToMany(mappedBy = "categories")
 	private List<Recipe> recipes = new ArrayList<>();
 
 	public String getName() {

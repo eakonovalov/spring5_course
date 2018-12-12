@@ -10,8 +10,10 @@ public class Ingredient extends BaseEntity {
 
 	private BigDecimal amount;
 	private String description;
+
 	@ManyToOne
 	private Recipe recipe;
+
 	@OneToOne
 	private UnitOfMeasure uom;
 
