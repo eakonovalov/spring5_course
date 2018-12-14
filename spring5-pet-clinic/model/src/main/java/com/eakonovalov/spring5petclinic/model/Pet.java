@@ -13,7 +13,7 @@ public class Pet extends NamedEntity {
     private PetType type;
     @ManyToOne(fetch = FetchType.LAZY)
     private Owner owner;
-    @OneToMany
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
     private List<Visit> visits = new ArrayList<>();
 
     public Pet() {

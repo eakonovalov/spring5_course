@@ -1,5 +1,6 @@
 package com.eakonovalov.spring5petclinic.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -11,7 +12,8 @@ public class Owner extends Person {
     private String address;
     private String city;
     private String phone;
-    @OneToMany(mappedBy = "owner")
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Pet> pets = new ArrayList<>();
 
     public Owner() {
